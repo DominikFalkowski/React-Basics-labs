@@ -1,24 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [ taskState, setTaskState ] = useState({
+    tasks: [
+      { title:"Dishes", description: "Empty dishwasher", deadline: "Today" },
+      { title: "Laundry", description: "Fold clothes and put away", deadline: "Tomorrow" },
+      { title: "Tidy up", deadline: "Today" }
+    ]
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="container">
+      <h1>Tasky</h1>
+      {taskState.tasks.map((task) => (              
+    <Task 
+      title={task.title}
+      description={task.description}
+      deadline={task.deadline}
+    />
+      ))}
+      </div>
   );
 }
 
