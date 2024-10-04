@@ -77,7 +77,6 @@ function App() {
           deleteTask = {() => deleteHandler(index)}
         />
       ))}
-<AddTaskForm change={formChangeHandler} />
 <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />
 
 </div>
